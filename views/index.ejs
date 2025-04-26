@@ -1,0 +1,81 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container-fluid"></div>
+  <header>
+    <div class="px-3 py-2 text-bg-dark border-bottom">
+      <div class="container-fluid"></div>
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small" style="font-size: 1.25rem; text-align: center;">
+            <li>
+              <a href="#" class="nav-link text-secondary">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#recent-posts" class="nav-link text-white">
+                View All Posts
+              </a>
+            </li>
+            <li>
+              <a href="/create" class="nav-link text-white">
+              Create New Post
+              </a>
+            </li>
+            <li>
+              <a href="/about" class="nav-link text-white">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+   
+  </header>
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold text-primary">Welcome to BlogSphere</h1>
+        <p class="lead mb-4 text-muted" style="font-size: 1.2rem; line-height: 1.8;">
+          Your Daily Dose of Inspiration! 🌟
+        </p>
+        <a href="/create" class="btn btn-primary btn-lg px-4">Create New Post</a>
+      </div>
+    </div>
+  <section name="recent-posts" id="recent-posts" class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="display-4 fw-bold text-primary">Recent Posts</h2>
+      <div class="row">
+        <% if (posts.length === 0) { %>
+          <p>No posts available. Create a new post!</p>
+        <% } else { %>
+        <% posts.forEach(post => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="<%= post.image ? '' + post.image : '/images/Hero.png' %>" class="card-img-top" alt="Post Image">
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="/post/<%= post.id %>"><%= post.title %></a></h5>
+                <p class="card-text"><%= post.content ? post.content.substring(0, 100) : '' %>...</p>
+                <a href="/post/edit/<%= post.id %>" class="btn btn-edit">Edit</a>
+                <form action="/post/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button type="submit" class="btn btn-delete">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+        <% } %>
+      </div>
+    </div>
+  </section>
+<%- include('partials/footer.ejs') %>

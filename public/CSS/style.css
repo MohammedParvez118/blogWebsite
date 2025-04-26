@@ -1,0 +1,225 @@
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1, h2, h5 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container, .create-post {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Header Styling */
+header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+header .btn {
+  transition: all 0.3s ease;
+}
+
+header .btn:hover {
+  animation: buttonHover 0.3s forwards;
+}
+
+/* Form Styling */
+.create-post,
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.create-post h1,
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.create-post label,
+.container label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #555;
+}
+
+.create-post input[type="text"],
+.create-post textarea,
+.create-post input[type="file"],
+.container input[type="text"],
+.container textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.create-post input:focus,
+.create-post textarea:focus,
+.container input:focus,
+.container textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.create-post button,
+.container button,
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.create-post button:hover,
+.container button:hover,
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-back {
+  display: block;
+  width: fit-content;
+  padding: 10px 20px;
+  margin: 15px auto;
+  background: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+.btn-edit {
+  background: #ffc107;
+}
+
+.btn-edit:hover {
+  background: #e0a800;
+}
+
+.btn-delete {
+  background: #dc3545;
+}
+
+.btn-delete:hover {
+  background: #c82333;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+/* Post View Styling */
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-post,
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .card-img-top {
+    height: 150px;
+  }
+}

@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <h1>Edit Post</h1>
+  <form action="/post/<%= post.id %>?_method=PUT" method="POST">
+    <label for="title">Title:</label>
+    <input id="title" type="text" name="title" value="<%= post.title %>" required />
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" rows="5" required><%= post.content %></textarea>
+    <button type="submit" class="btn">Update</button>
+  </form>
+  <a href="/" class="btn btn-back">Back to Home</a>
+</div>
+
+<style>
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px
+  }
